@@ -1,7 +1,7 @@
 package com.phukety.demo.concurrent.atomicinteger;
 
 public class AtomicIntegerDemo implements Runnable {
-    private static int k = 0;
+    private static  int k = 0;
 
     @Override
     public void run() {
