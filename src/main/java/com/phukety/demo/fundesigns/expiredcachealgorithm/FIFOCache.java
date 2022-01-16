@@ -20,11 +20,11 @@ import java.util.concurrent.TimeUnit;
  */
 public class FIFOCache<T> {
     // 缓存容量
-    private final int capacity;
+    protected final int capacity;
     // 缓存载体<key,value>
-    private final Map<String, T> cache = new LinkedHashMap<>();
+    protected final Map<String, T> cache = new LinkedHashMap<>();
     // 有过期时间的key载体<key,expireTime>
-    private final Map<String, Long> expire = new HashMap<>();
+    protected final Map<String, Long> expire = new HashMap<>();
 
     public FIFOCache() {
         this(0);
@@ -47,6 +47,7 @@ public class FIFOCache<T> {
         }
         if (expire.containsKey(key) && expire.get(key) <= System.currentTimeMillis()) {
             expire.remove(key);
+            cache.remove(key);
             return null;
         }
         return cache.get(key);
