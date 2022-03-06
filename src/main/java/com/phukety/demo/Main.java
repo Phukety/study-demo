@@ -1,15 +1,14 @@
 package com.phukety.demo;
 
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
-    public static ReentrantLock lock = new ReentrantLock();
-
-    public static void test() throws InterruptedException {
-        System.out.println(~1);
-    }
-
     public static void main(String[] args) throws InterruptedException {
-        test();
+        List<Object> objects = new ArrayList<>();
+        while(true) {
+            objects.add(new Object());
+            Thread.sleep(1);
+        }
     }
 }
